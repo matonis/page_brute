@@ -4,7 +4,7 @@ page_brute (beta!)
 **page_brute.py** is a digital forensic tool purposed to analyze Windows Page Files by appying YARA-based signatures to fix-sized blocks of pagefile.sys. 
 
 ***This tool can be used to:***
- * Disambiguate evidence within pagefile.sys by logically grouping blocks/pages into categories based on YARA rulesets.
+ * Disambiguate evidence within pagefile.sys by logically grouping blocks/pages into categories based on YARA rulesets of forensic artifacts that follow a pattern.
  * Identify page files that contain remanants of popular cleartext protocols such as HTTP/FTP, etc to identify network activities.
  * Identify potential attacker activities based on popular command syntaxes used during internal propagations.
  * Identify evidence of active malware infections based on YARA signatures for known malware.
