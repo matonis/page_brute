@@ -35,7 +35,7 @@ YARA is a powerful engine that allows you to match groups of strings,binary sequ
 
 To learn more about writing YARA rules, please see the informative user guide here: http://yara-project.googlecode.com/files/YARA%20User%27s%20Manual%201.6.pdf
 
-###Current Signatures:
+##Current Signatures:
   * FTP
   * HTTP requests/responses
   * IRC
