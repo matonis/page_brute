@@ -14,6 +14,7 @@ This tool is currently in beta! This utility and its signature set is subject to
 
 ##Requires:
  * yara & yara-python: http://code.google.com/p/yara-project/downloads/list
+ * default_signatures.yar (see above)
 
 ##How does it work?
 1. Given block size, page_brute.py reads in pagefile in fixed-sized blocks (default, 4096 bytes)
@@ -33,6 +34,17 @@ This tool is currently in beta! This utility and its signature set is subject to
 YARA is a powerful engine that allows you to match groups of strings,binary sequences,and regular expressions with user-defined boolean conditions against pretty much anything.
 
 To learn more about writing YARA rules, please see the informative user guide here: http://yara-project.googlecode.com/files/YARA%20User%27s%20Manual%201.6.pdf
+
+###Current Signatures:
+  * FTP
+  * HTTP requests/responses
+  * IRC
+  * Administrative/Hidden Share Abuse
+  * Remote system syntaxes
+  * HTML
+  * Javascript
+  * CMD Shell (this might suck)
+  * SMTP Message Headers
 
 ##Usage:
 From the help page:
@@ -57,4 +69,62 @@ optional arguments:
                         directory
   -i, --invert          Given scan options, match all blocks that DO NOT match
                         a ruleset
+```
+###In Action:
+```
+root@system:~/Desktop/page/page_brute# ./page_brute-BETA.py --file=pagefile.sys
+[+] - PAGE_BRUTE processing file: ../AVD
+[+] - Ruleset Compilation Successful.
+[+] - PAGE_BRUTE running with the following options:
+	[-] - FILE: ../AVD
+	[-] - PAGE_SIZE: 4096
+	[-] - RULES TYPE: DEFAULT
+	[-] - RULE LOCATION: default_signatures.yar
+	[-] - INVERSION SCAN: False
+	[-] - WORKING DIR: PAGE_BRUTE-2013-10-27-01:09:33-RESULTS
+	=================
+
+        [!] FLAGGED BLOCK 56: cmdshell
+        [!] FLAGGED BLOCK 87: cmdshell
+        [!] FLAGGED BLOCK 1222: webartifact_html
+        [!] FLAGGED BLOCK 1454: webartifact_html
+        [!] FLAGGED BLOCK 1782: webartifact_html
+        [!] FLAGGED BLOCK 2200: webartifact_html
+        [!] FLAGGED BLOCK 3781: webartifact_html
+        
+root@system:~/Desktop/page/page_brute# ls -lR PAGE_BRUTE-2013-10-27-01\:09\:33-RESULTS/
+PAGE_BRUTE-2013-10-27-01:09:33-RESULTS/:
+total 8
+drwxr-xr-x 2 root root 4096 Oct 27 01:09 cmdshell
+drwxr-xr-x 2 root root 4096 Oct 27 01:09 webartifact_html
+
+PAGE_BRUTE-2013-10-27-01:09:33-RESULTS/cmdshell:
+total 8
+-rw-r--r-- 1 root root 4096 Oct 27 01:09 118.page
+-rw-r--r-- 1 root root 4096 Oct 27 01:09 77.page
+
+PAGE_BRUTE-2013-10-27-01:09:33-RESULTS/webartifact_html:
+total 20
+-rw-r--r-- 1 root root 4096 Oct 27 01:09 1330.page
+-rw-r--r-- 1 root root 4096 Oct 27 01:09 1445.page
+
+root@system:~/Desktop/page/page_brute/PAGE_BRUTE-2013-10-27-01:20:28-RESULTS/webartifact_html# xxd 24606.page 
+0000000: 613e 3c2f 7464 3e0d 0a20 2020 2020 2020  a></td>..       
+0000010: 2020 203c 2f74 723e 0d0a 0d0a 2020 2020     </tr>....    
+0000020: 2020 2020 2020 3c74 7220 6964 3d22 446f        <tr id="Do
+0000030: 4f76 6572 7269 6465 2220 7374 796c 653d  Override" style=
+0000040: 2264 6973 706c 6179 3d27 6e6f 6e65 2722  "display='none'"
+0000050: 3e20 0d0a 2020 2020 2020 2020 2020 2020  > ..            
+0000060: 3c74 643e 3c69 6d67 2069 643d 226e 6f74  <td><img id="not
+0000070: 5265 636f 6d6d 656e 6465 6449 636f 6e22  RecommendedIcon"
+0000080: 2073 7263 3d22 7265 645f 7368 6965 6c64   src="red_shield
+0000090: 2e70 6e67 2220 626f 7264 6572 3d22 3022  .png" border="0"
+00000a0: 2061 6c74 3d22 4e6f 7420 7265 636f 6d6d   alt="Not recomm
+00000b0: 656e 6465 6420 6963 6f6e 2220 636c 6173  ended icon" clas
+00000c0: 733d 2261 6374 696f 6e49 636f 6e22 3e3c  s="actionIcon"><
+00000d0: 2f74 643e 0d0a 2020 2020 2020 2020 2020  /td>..          
+00000e0: 2020 3c74 6420 7374 796c 653d 2270 6164    <td style="pad
+00000f0: 6469 6e67 2d62 6f74 746f 6d3a 202e 3165  ding-bottom: .1e
+
+
 ```
