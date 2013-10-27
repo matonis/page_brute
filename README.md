@@ -9,6 +9,6 @@ page_brute.py is a digital forensic tool used to analyze Windows Page Files by a
  * Identify potential attacker activities based on popular command syntaxes used during internal propagations.
  * Isolate page files that contain headers for popular file formats for more precise file carving.
 
-* Requires:
+Requires:
 yara & yara-python: http://code.google.com/p/yara-project/downloads/list
 
