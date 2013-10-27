@@ -7,13 +7,16 @@ page_brute
  * Disambiguate evidence within pagefile.sys by logically grouping blocks/pages into categories based on YARA rulesets.
  * Identify page files that contain remanants of popular protocols such as HTTP/FTP, etc to identify network activities.
  * Identify potential attacker activities based on popular command syntaxes used during internal propagations.
- * Isolate page files that contain headers for popular file formats for more precise file carving.
+ * Isolate page files that contain signatures/magic values for popular file formats for more precise file carving.
 
 ##NOTICE:
 This tool is currently in beta! This utility and its signature set is subject to change in the near future! For suggestions - email the author @ dfir.matonis@gmail.com.
 
 ##Requires:
  * yara & yara-python: http://code.google.com/p/yara-project/downloads/list
+
+##How does it work?
+
 
 ##Usage:
 From the help page:
@@ -39,4 +42,7 @@ optional arguments:
   -i, --invert          Given scan options, match all blocks that DO NOT match
                         a ruleset
 ```
+##How do I write signatures?
+YARA is a powerful engine that allows you to match groups of strings,binary sequences,and regular expressions with user-defined boolean conditions against pretty much anything.
 
+To learn more about writing YARA rules, please see the informative user guide here: http://yara-project.googlecode.com/files/YARA%20User%27s%20Manual%201.6.pdf
