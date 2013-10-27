@@ -9,9 +9,9 @@ page_brute
  * Identify potential attacker activities based on popular command syntaxes used during internal propagations.
  * Isolate page files that contain headers for popular file formats for more precise file carving.
 
-**NOTICE:
+##NOTICE:
 This tool is currently in beta! This utility and its signature set is subject to change in the near future! For suggestions - email the author @ dfir.matonis@gmail.com.
 
-**Requires:
+##Requires:
  * yara & yara-python: http://code.google.com/p/yara-project/downloads/list
 
