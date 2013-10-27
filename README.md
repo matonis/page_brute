@@ -73,7 +73,7 @@ optional arguments:
 ###In Action:
 ```
 root@system:~/Desktop/page/page_brute# ./page_brute-BETA.py --file=pagefile.sys
-[+] - PAGE_BRUTE processing file: ../AVD
+[+] - PAGE_BRUTE processing file: pagefile.sys
 [+] - Ruleset Compilation Successful.
 [+] - PAGE_BRUTE running with the following options:
 	[-] - FILE: pagefile.sys
