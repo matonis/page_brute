@@ -11,7 +11,7 @@ page_brute (beta!)
  * Isolate page files that contain signatures/magic values for popular file formats for more precise file carving.
 
 ##NOTICE:
-This tool is currently in beta! This utility and its signature set is subject to change in the near future! For suggestions - email the author @ dfir.matonis@gmail.com.
+This tool is currently in beta! This utility and its signature set is subject to change in the near future! For suggestions - email the author via github.
 
 ##Requires:
  * yara & yara-python: http://code.google.com/p/yara-project/downloads/list
