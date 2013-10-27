@@ -76,7 +76,7 @@ root@system:~/Desktop/page/page_brute# ./page_brute-BETA.py --file=pagefile.sys
 [+] - PAGE_BRUTE processing file: ../AVD
 [+] - Ruleset Compilation Successful.
 [+] - PAGE_BRUTE running with the following options:
-	[-] - FILE: ../AVD
+	[-] - FILE: pagefile.sys
 	[-] - PAGE_SIZE: 4096
 	[-] - RULES TYPE: DEFAULT
 	[-] - RULE LOCATION: default_signatures.yar
