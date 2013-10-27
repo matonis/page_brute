@@ -1,4 +1,4 @@
-page_brute
+page_brute (beta!)
 ==========
 
 **page_brute.py** is a digital forensic tool purposed to analyze Windows Page Files by appying YARA-based signatures to fix-sized blocks of pagefile.sys. 
