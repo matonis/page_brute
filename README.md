@@ -1,7 +1,7 @@
 page_brute
 ==========
 
-***page_brute.py*** is a digital forensic tool used to analyze Windows Page Files by appying YARA-based signatures to fix-sized blocks of pagefile.sys. 
+**page_brute.py** is a digital forensic tool purposed to analyze Windows Page Files by appying YARA-based signatures to fix-sized blocks of pagefile.sys. 
 
 ***This tool can be used to:***
  * Disambiguate evidence within pagefile.sys by logically grouping blocks/pages into categories based on YARA rulesets.
