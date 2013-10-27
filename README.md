@@ -7,6 +7,7 @@ page_brute (beta!)
  * Disambiguate evidence within pagefile.sys by logically grouping blocks/pages into categories based on YARA rulesets.
  * Identify page files that contain remanants of popular cleartext protocols such as HTTP/FTP, etc to identify network activities.
  * Identify potential attacker activities based on popular command syntaxes used during internal propagations.
+ * Identify evidence of active malware infections based on YARA signatures for known malware.
  * Isolate page files that contain signatures/magic values for popular file formats for more precise file carving.
 
 ##NOTICE:
