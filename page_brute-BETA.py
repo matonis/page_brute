@@ -4,8 +4,6 @@
 #	by @matonis - secualexploits.blogspot.com - www.mike-matonis.com
 #	Summer of 2013
 #
-
-
 import sys
 import argparse
 import datetime
@@ -143,7 +141,7 @@ def main():
 	if args.scanname:
 		SCANNAME=args.scanname
 	else:
-		SCANNAME="PAGE_BRUTE-" + datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S") + "-RESULTS"
+		SCANNAME="PAGE_BRUTE-" + datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S") + "-RESULTS"
 	
 	#::Check if --invert-match provided::#
 	if args.invert:
@@ -199,26 +197,26 @@ def main():
 					if INVERT == True:
 						matched=True
 					else:
-						CHUNK_OUTPUT_DIR=WORKING_DIR + "/" + matches.rule
+						CHUNK_OUTPUT_DIR=os.path.join(WORKING_DIR,matches.rule)
 						print "        [!] FLAGGED BLOCK " + str(page_id) + ": " + matches.rule
 
 						if not os.path.exists(CHUNK_OUTPUT_DIR):
 							os.makedirs(CHUNK_OUTPUT_DIR)
 
                                        		#::Save chunk to file::#
-						CHUNK_OUTPUT_FWD=CHUNK_OUTPUT_DIR + "/" + str(page_id) + ".page"
+						CHUNK_OUTPUT_FWD=os.path.join(CHUNK_OUTPUT_DIR,str(page_id) + ".block")
 						page_export=open(CHUNK_OUTPUT_FWD,'w+')
 						page_export.write(raw_page)
 						page_export.close()
 
 				if INVERT == True:
 					if matched == False:
-						CHUNK_OUTPUT_DIR=WORKING_DIR + "/INVERTED-MATCH"
+						CHUNK_OUTPUT_DIR=os.path.join(WORKING_DIR,"INVERTED-MATCH")
 						print "        [!] BLOCK DOES NOT MATCH ANY KNOWN SIGNATURE " + str(page_id)
 						if not os.path.exists(CHUNK_OUTPUT_DIR):
 							os.makedirs(CHUNK_OUTPUT_DIR)
 
-						CHUNK_OUTPUT_FWD=CHUNK_OUTPUT_DIR + "/" + str(page_id) + ".page"
+						CHUNK_OUTPUT_FWD=os.path.join(CHUNK_OUTPUT_DIR,str(page_id) + ".block")
 						page_export=open(CHUNK_OUTPUT_FWD,'w+')
 						page_export.write(raw_page)
 						page_export.close()
